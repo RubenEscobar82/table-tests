@@ -18,7 +18,7 @@
                 No items Added
               </p>
             </template>
-            <Column :rowReorder="true" headerStyle="width: 3rem" :reorderableColumn="false" />
+            <Column bodyClass ="drag-trigger-column" :rowReorder="true" headerStyle="width: 3rem" :reorderableColumn="false" />
             <Column field="item" header="Item">
               <template #body="slotProps">
                 {{  slotProps.data.name || slotProps.data[slotProps.column.field].item  }}
@@ -192,8 +192,7 @@ export default {
     if (sortableTableBody) {
       sortableJs.Sortable.create(sortableTableBody, {
         group: 'items',
-        sort: true,
-        pull: true,
+        handle: '.drag-trigger-column',
         animation: 100,
         onUpdate: (event) => {
           const movedItem = this.items[event.oldIndex]
