@@ -178,6 +178,42 @@ export default {
         {
           item: '3th Service',
           description: 'description 3'
+        },
+        {
+          item: '4th Service',
+          description: 'description 4'
+        },
+        {
+          item: '5th Service',
+          description: 'description 5'
+        },
+        {
+          item: '6th Service',
+          description: 'description 6'
+        },
+        {
+          item: '7th Service',
+          description: 'description 7'
+        },
+        {
+          item: '8th Service',
+          description: 'description 8'
+        },
+        {
+          item: '9th Service',
+          description: 'description 9'
+        },
+        {
+          item: '10th Service',
+          description: 'description 10'
+        },
+        {
+          item: '11th Service',
+          description: 'description 11'
+        },
+        {
+          item: '12th Service',
+          description: 'description 12'
         }
       ],
       filteredServices: [],
@@ -221,16 +257,7 @@ export default {
       this.items[index].description = event.value.description
     },
     async searchService (event) {
-      const services = this.allServices.filter((service) => service.item.includes(event.query.trim()) )
-      this.filteredServices = services.sort(( a, b ) => {
-        if ( a.item < b.item ){
-          return -1;
-        }
-        if ( a.item > b.item ){
-          return 1;
-        }
-        return 0;
-      });
+      this.filteredServices = this.allServices.filter((service) => service.item.includes(event.query.trim()))
     },
     onRowEditInit (event) {
       this.originalRows = { ...this.items[event.index] }
